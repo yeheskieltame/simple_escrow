@@ -1,6 +1,6 @@
-# 🚀 SolAce Quick Testing Guide
+#  SolAce Quick Testing Guide
 
-## 📋 Object IDs dari Publish
+##  Object IDs dari Publish
 
 ```bash
 export PKG=0x65c1ce78c397a5ba47527ad2d67344773507b5803a4fe4626e32e3dfdf6e9dcb
@@ -10,9 +10,9 @@ export ORACLE=0x9b9de6b7e20f77031894c7f796cd7ac61e0faf27d089f83ee726f7b6ed0266c5
 export TREASURY=0xcb834024b86ae3b3b542eeaf98ecc319b8a572a05aa354671708fbd05ee9da2c
 ```
 
-## 🧪 Testing Flow
+##  Testing Flow
 
-### 1️⃣ Mint USDC (1000 USDC)
+###  Mint USDC (1000 USDC)
 
 ```bash
 sui client call \
@@ -30,7 +30,7 @@ export USDC_COIN=0x...  # Dari Created Objects
 
 ---
 
-### 2️⃣ Create Wallet
+###  Create Wallet
 
 ```bash
 sui client call \
@@ -47,7 +47,7 @@ export WALLET=0x...  # Dari Created Objects (SolAceWallet)
 
 ---
 
-### 3️⃣ Deposit USDC → Auto Mint aceGOLD
+###  Deposit USDC → Auto Mint aceGOLD
 
 **Scenario:** User deposit 100 USDC
 - Harga emas: 100 USDC/gram
@@ -62,13 +62,13 @@ sui client call \
   --gas-budget 10000000
 ```
 
-**✅ Result:**
+** Result:**
 - User wallet: 1.0 aceGOLD (1_000_000_000 units)
 - Treasury: 100 USDC reserve
 
 ---
 
-### 4️⃣ Merchant Create Payment Request
+### Merchant Create Payment Request
 
 **Scenario:** Kafe minta pembayaran 5 USDC
 
@@ -88,7 +88,7 @@ export REQUEST=0x...  # Dari Created Objects (PaymentRequest)
 
 ---
 
-### 5️⃣ User Pay QR → Auto Burn aceGOLD
+###  User Pay QR → Auto Burn aceGOLD
 
 **Scenario:** User bayar kafe 5 USDC
 - System burn: 0.05 aceGOLD
@@ -103,14 +103,14 @@ sui client call \
   --gas-budget 10000000
 ```
 
-**✅ Result:**
+** Result:**
 - User remaining: 0.95 aceGOLD (~95 USDC value)
 - Merchant received: 5 USDC
 - Payment Request: `paid = true`
 
 ---
 
-## 📊 Oracle Testing (Optional)
+##  Oracle Testing (Optional)
 
 ### Update Harga Emas
 
@@ -127,11 +127,11 @@ sui client call \
 
 **Impact:**
 - User dengan 0.95 aceGOLD sekarang punya nilai ~104.5 USDC
-- Profit dari kenaikan harga emas! 📈
+- Profit dari kenaikan harga emas! 
 
 ---
 
-## 🎯 Full Test Scenario
+##  Full Test Scenario
 
 ```bash
 # Setup
@@ -168,7 +168,7 @@ sui client call --function pay_qr --module auto_swap --package $PKG --args $WALL
 
 ---
 
-## 🔍 Expected Results
+## Expected Results
 
 | Step | User aceGOLD | Treasury USDC | Merchant USDC |
 |------|--------------|---------------|---------------|
@@ -178,11 +178,11 @@ sui client call --function pay_qr --module auto_swap --package $PKG --args $WALL
 
 ---
 
-## 🎉 Success Indicators
+##  Success Indicators
 
-✅ Deposit: User gold_balance = 1_000_000_000 (1.0 aceGOLD)
-✅ Payment: Merchant received 5_000000 USDC
-✅ Remaining: User gold_balance = 950_000_000 (0.95 aceGOLD)
-✅ Request: `paid = true`
+ Deposit: User gold_balance = 1_000_000_000 (1.0 aceGOLD)
+ Payment: Merchant received 5_000000 USDC
+ Remaining: User gold_balance = 950_000_000 (0.95 aceGOLD)
+ Request: `paid = true`
 
 **Save in Gold, Pay in USDC! ✨**

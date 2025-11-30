@@ -2,7 +2,7 @@
 
 Smart contract untuk dompet digital berbasis blockchain SUI yang menggabungkan keamanan investasi emas dengan kemudahan uang tunai.
 
-## 📁 Struktur Project
+##  Struktur Project
 
 ```
 sources/
@@ -12,7 +12,7 @@ sources/
 └── auto_swap.move      # Core logic: Auto-swap USDC ↔ aceGOLD
 ```
 
-## 🎯 Konsep Inti
+##  Konsep Inti
 
 **Masalah:**
 - Uang tunai tergerus inflasi
@@ -62,7 +62,7 @@ deposit_usdc(wallet, treasury, usdc_coin, gold_cap, oracle)
 pay_qr(wallet, treasury, payment_request, gold_cap, oracle)
 ```
 
-## 📊 Contoh Matematika
+##  Contoh Matematika
 
 **Deposit:**
 ```
@@ -80,14 +80,14 @@ Output: 5 USDC (5_000000 - 6 decimals)
 Formula: (gold * price) / 1e9
 ```
 
-## 🔐 Security Features
+##  Security Features
 
 1. **Authorization Check**: Hanya owner wallet yang bisa deposit/bayar
 2. **Balance Check**: Cek saldo gold sebelum payment
 3. **Treasury Reserve**: USDC disimpan di shared treasury
 4. **Mint/Burn Control**: aceGOLD hanya bisa mint/burn via protocol
 
-## 🚀 Deployment Guide
+##  Deployment Guide
 
 ```bash
 # 1. Build project
@@ -127,7 +127,7 @@ sui client call \
   --gas-budget 10000000
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────┐
@@ -154,7 +154,7 @@ sui client call \
 └─────────────────────────────────────┘
 ```
 
-## 📝 Next Steps (Production)
+##  Next Steps (Production)
 
 1. **Oracle Integration**: Ganti mock_oracle dengan Pyth Network / Switchboard
 2. **Price Feed**: Real-time XAU/USD feed
@@ -162,7 +162,7 @@ sui client call \
 4. **QR Scanner**: Integrasi QR code generator/scanner
 5. **Fee System**: Tambah protocol fee untuk sustainability
 
-## 🎓 Filosofi
+##  Filosofi
 
 > "Uang yang didiamkan harusnya tumbuh (Emas),
 > tapi uang yang mau dipakai harusnya mudah (USDC)."
